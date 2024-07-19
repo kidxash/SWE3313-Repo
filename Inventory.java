@@ -10,8 +10,12 @@ import org.apache.poi.ss.usermodel.Row;
 public class Inventory {
     String Status;
     int ProductID;
+    String containerName;
     String Name;
+    String brand;
     String Vendor;
+    int onHand;
+    int reserved;
 
     Inventory() throws FileNotFoundException {
         try {
