@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Customer {
     String FirstName;
     String LastName;
@@ -9,9 +11,10 @@ public class Customer {
     int Zipcode;
     String Loading_cap;
     String CustomerID;
+    static int customerIDCount=0;
 
-    Customer(String rawdata){
-        String[] Customerdata=rawdata.split(",",9);
+    Customer(String rawData){
+        String[] Customerdata=rawData.split(",",9);
         FirstName=Customerdata[0];
         LastName=Customerdata[1];
         customerPhone=Integer.getInteger(Customerdata[2]);
@@ -21,6 +24,13 @@ public class Customer {
         City=Customerdata[6];
         Zipcode=Integer.getInteger(Customerdata[7]);
         Loading_cap=Customerdata[8];
+        if (FirstName.length()>4&&LastName.length()>4){
+            CustomerID=FirstName.substring(0,4).toLowerCase()+LastName.substring(0,2).toLowerCase()+"_"+String.format("%03d",customerIDCount);
+
+        } else {
+            CustomerID=FirstName.substring(0,2).toLowerCase()+LastName.substring(0,1).toLowerCase()+"_"+String.format("%03d",customerIDCount);
+        }
+        customerIDCount++;
     }
 
     public void setAddress(){
