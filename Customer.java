@@ -10,7 +10,7 @@ public class Customer {
     String Loading_cap;
     String CustomerID;
 
-    Customer(){
+    Customer(String rawdata){
 
     }
 }

@@ -29,7 +29,7 @@ public class AddCustomerScreen extends JFrame {
                 String contact = contactField.getText();
 
                 // Save customer data to a file (for simplicity, using CSV format)
-                try (FileWriter writer = new FileWriter("customers.txt", true)) {
+                try (FileWriter writer = new FileWriter("customers.txt", false)) {
                     writer.write(name + "," + store + "," + address + "," + contact + "\n");
                     JOptionPane.showMessageDialog(null, "Customer Added!");
                 } catch (IOException ioException) {
