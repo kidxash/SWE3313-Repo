@@ -11,6 +11,15 @@ public class Customer {
     String CustomerID;
 
     Customer(String rawdata){
-
+        String[] Customerdata=rawdata.split(",",9);
+        First_Name=Customerdata[0];
+        Last_Name=Customerdata[1];
+        Contact_num=Integer.getInteger(Customerdata[2]);
+        Email=Customerdata[3];
+        Street=Customerdata[4];
+        State=Customerdata[5];
+        City=Customerdata[6];
+        Zipcode=Integer.getInteger(Customerdata[7]);
+        Loading_cap=Customerdata[8];
     }
 }
