@@ -5,11 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class AddCustomerScreen extends JFrame {
-    private JTextField nameField;
+    private JTextField nameFirstField;
     private JTextField storeField;
     private JTextField addressField;
     private JTextField contactField;
     private JButton saveButton;
+    private JButton loadingSpace;
 
     public AddCustomerScreen() {
         setTitle("Add New Customer");
@@ -23,14 +24,14 @@ public class AddCustomerScreen extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = nameField.getText();
+                String nameFirst = nameFirstField.getText();
                 String store = storeField.getText();
                 String address = addressField.getText();
                 String contact = contactField.getText();
 
                 // Save customer data to a file (for simplicity, using CSV format)
                 try (FileWriter writer = new FileWriter("customers.txt", true)) {
-                    writer.write(name + "," + store + "," + address + "," + contact + "\n");
+                    writer.write(nameFirst + "," + store + "," + address + "," + contact + "\n");
                     JOptionPane.showMessageDialog(null, "Customer Added!");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -48,9 +49,9 @@ public class AddCustomerScreen extends JFrame {
         nameLabel.setBounds(10, 20, 80, 25);
         panel.add(nameLabel);
 
-        nameField = new JTextField(20);
-        nameField.setBounds(100, 20, 165, 25);
-        panel.add(nameField);
+        nameFirstField = new JTextField(20);
+        nameFirstField.setBounds(100, 20, 165, 25);
+        panel.add(nameFirstField);
 
         JLabel storeLabel = new JLabel("Store:");
         storeLabel.setBounds(10, 50, 80, 25);
