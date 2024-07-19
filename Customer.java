@@ -22,4 +22,8 @@ public class Customer {
         Zipcode=Integer.getInteger(Customerdata[7]);
         Loading_cap=Customerdata[8];
     }
+
+    public void setAddress(){
+
+    }
 }
