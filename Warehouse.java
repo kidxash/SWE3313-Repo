@@ -10,11 +10,11 @@ This class, as the inventory to the
 
  */
 public class Warehouse {
-    String Status;
-    int ProductID;
-    String containerName;
+    String City;
+    String State;
+    String Street;
+    int Zipcode;
     String Name;
-    String brand;
     String Vendor;
     int onHand;
     int reserved;
