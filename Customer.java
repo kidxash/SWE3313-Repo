@@ -7,6 +7,7 @@ public class Customer {
     String State;
     String City;
     int Zipcode;
+    String Loading_cap;
     String CustomerID;
 
     Customer(){
