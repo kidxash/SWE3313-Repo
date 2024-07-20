@@ -19,9 +19,12 @@ The addition of the POI library was necessary as java does not have a direct api
 which is the program the master product list was provided through. Support documentation was
 gathered at this link: https://www.javatpoint.com/how-to-read-excel-file-in-java
 
+Place the Jar files at this link into the library to utilize the functions that take advantage of
+excel's API.
 
  */
 public class Warehouse {
+    final String warehouseID="ANH11001";
     String City;
     String State;
     String Street;
@@ -86,6 +89,7 @@ public class Warehouse {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public void assignManager(String managerID){

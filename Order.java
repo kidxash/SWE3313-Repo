@@ -1,5 +1,17 @@
+import java.util.ArrayList;
+
 public class Order {
     String customerID;
     String warehouseID;
-    int[] productList;
+    final String orderID;
+    static int orderIDCount=0;
+    ArrayList<int> productList;
+
+    Order(ArrayList<int> productList){
+        for (int i: productList){
+
+        }
+        orderIDCount++;
+        orderID=
+    }
 }
