@@ -15,6 +15,9 @@ import java.util.Date;
 This class, as the inventory to the warehouse, must be able to accept a large, current register
 of the warehouse after an audit, and it is used to add new products to the warehouse.
 
+The addition of the POI library was necessary as java does not have a direct api with excel,
+which is the program the master product list was provided through. Support documentation was
+gathered at this link: https://www.javatpoint.com/how-to-read-excel-file-in-java
 
 
  */
@@ -24,9 +27,8 @@ public class Warehouse {
     String Street;
     int Zipcode;
     String Name;
-    String Vendor;
-    int onHand;
-    int reserved;
+    String ManagerID;
+    int ContactNumber;
 
     Warehouse() throws FileNotFoundException {
         try {
@@ -69,6 +71,8 @@ public class Warehouse {
                         case 15:
                             reserved=(int)cell.getNumericCellValue();
                             break;
+                        default:
+                            break;
                     }
                     new Product(status,productID,description,vendor,onHand,sold,shipment,reserved);
                 }
@@ -82,5 +86,9 @@ public class Warehouse {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void assignManager(String managerID){
+        ManagerID=managerID;
     }
 }
