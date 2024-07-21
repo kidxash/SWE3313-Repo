@@ -5,7 +5,16 @@ public class Personnel {
     String name;
 
     //Personnel will be Loaded in by Driver
-    Personnel(){
+    Personnel()
+    {
 
     }
+     Personnel(String person, String gmail, int ContactNum, String n)
+    {
+        personnelID = person;
+        email = gmail;
+        ContactNumber = ContactNum;
+        name = n;
+    }
+    
 }
