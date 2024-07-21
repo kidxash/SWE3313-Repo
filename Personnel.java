@@ -4,6 +4,7 @@ public class Personnel {
     int ContactNumber;
     String name;
 
+    //Personnel will be Loaded in by Driver
     Personnel(){
 
     }

@@ -1,4 +1,4 @@
-public class Driver {
+public class TruckDriver {
     String City;
     String State;
     String Street;
@@ -8,7 +8,8 @@ public class Driver {
     int ContactNumber;
     String truckType;
 
-    Driver(String city, String state, String street, int zipcode, String name, String driverID, int contactNumber, String trucktype){
+    //TruckDriver will be Loaded in by Driver
+    TruckDriver(String city, String state, String street, int zipcode, String name, String driverID, int contactNumber, String trucktype){
         City=city;
         State=state;
         Street=street;

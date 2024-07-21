@@ -5,6 +5,14 @@ public class LoadAssignment {
     String warehouseID;
     String DriverID;
     final String LoadID;
-    static int orderIDCount=0;
+    static int LoadIDCount=0;
     ArrayList<Product> productList;
+
+    LoadAssignment(ArrayList<Product> productList){
+        for (Product i: productList){
+            this.productList.add(i);
+        }
+        LoadIDCount++;
+        LoadID=Warehouse.getWarehouseID()+String.format("%03d",LoadIDCount);
+    }
 }
