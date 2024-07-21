@@ -33,7 +33,10 @@ public class Customer {
         customerIDCount++;
     }
 
-    public void setAddress(){
-
+    public void setAddress(String state, String city, String street, int zipcode){
+        State=state;
+        City=city;
+        Street=street;
+        Zipcode=zipcode;
     }
 }

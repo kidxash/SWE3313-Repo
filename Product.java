@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Product {
-    String Status;
-    final int ProductID;
-    String Description;
-    String Vendor;
-    int onHand;
-    int reserved;
-    int sold;
-    LocalDate LastShipment;
+    private String Status;
+    private final int ProductID;
+    private String Description;
+    private String Vendor;
+    private int onHand;
+    private int reserved;
+    private int sold;
+    private LocalDate LastShipment;
 
 
     Product(String status, int productID, String description, String vendor, int onHand, int sold, LocalDate lastShipment, int reserved ){
