@@ -17,15 +17,16 @@ public class Order {
         orderID=Warehouse.getWarehouseID()+String.format("%03d",orderIDCount);
     }
 
-    Order(ArrayList<Product> productList){
+    public void addProducts(ArrayList<Product> productList){
         for (Product i: productList){
             this.productList.add(i);
         }
-        orderIDCount++;
-        orderID=Warehouse.getWarehouseID()+String.format("%03d",orderIDCount);
     }
 
     public void addProduct(Product i){
         productList.add(i);
+    }
+    public void removeProduct(Product i){
+        productList.remove(i);
     }
 }
