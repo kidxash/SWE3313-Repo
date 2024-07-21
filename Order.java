@@ -12,6 +12,6 @@ public class Order {
 
         }
         orderIDCount++;
-        orderID=
+        orderID=Warehouse.getWarehouseID()+String.format("%03d",orderIDCount);
     }
 }

@@ -24,7 +24,7 @@ excel's API.
 
  */
 public class Warehouse {
-    final String warehouseID="ANH11001";
+    final static String warehouseID="ANH11001";
     String City;
     String State;
     String Street;
@@ -90,6 +90,9 @@ public class Warehouse {
             throw new RuntimeException(e);
         }
 
+    }
+    public static String getWarehouseID(){
+        return warehouseID;
     }
 
     public void assignManager(String managerID){
