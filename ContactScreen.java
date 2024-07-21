@@ -38,4 +38,14 @@ public class ContactScreen extends JFrame {
 
         setLocationRelativeTo(null);
     }
+
+    public static void main(String[] args) {
+        // Create and display the login form
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new ContactScreen().setVisible(true);
+            }
+        });
+    }
 }

@@ -1,37 +1,69 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SupportScreen extends JFrame {
-    private JButton faqButton;
-    private JButton contactButton;
-    private JButton submitTicketButton;
-    private JButton logoutButton;
 
+    // Constructor to setup the GUI components
     public SupportScreen() {
-        setTitle("Support");
-        setSize(300, 250);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        // Create a mainPanel to hold all components
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridBagLayout());
+        mainPanel.setBorder(BorderFactory.createLineBorder(Color.CYAN, 20));
 
-        JPanel panel = new JPanel();
-        panel.setLayout(null);
-        add(panel);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
 
-        faqButton = new JButton("FAQs");
-        faqButton.setBounds(10, 20, 260, 30);
-        panel.add(faqButton);
+        //Title panel
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(new GridBagLayout());
+        titlePanel.setBackground(Color.CYAN);
 
-        contactButton = new JButton("Contact Information");
-        contactButton.setBounds(10, 60, 260, 30);
-        panel.add(contactButton);
+        JLabel titleLabel = new JLabel("Support");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        titlePanel.add(titleLabel, gbc);
 
-        submitTicketButton = new JButton("Submit a Ticket");
-        submitTicketButton.setBounds(10, 100, 260, 30);
-        panel.add(submitTicketButton);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.ipady = 20;
+        mainPanel.add(titlePanel, gbc);
 
-        logoutButton = new JButton("Logout");
-        logoutButton.setBounds(10, 140, 260, 30);
-        panel.add(logoutButton);
+        //Panel to hold buttons
+        JPanel infoPanel = new JPanel(new GridBagLayout());
+
+        //Add FAQ button
+        JButton faqButton = new JButton("FAQs");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(faqButton, gbc);
+
+        //Add Contact button
+        JButton contactButton = new JButton("Contact");
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(contactButton, gbc);
+
+        //Add Submit Ticket button
+        JButton submitTicketButton = new JButton("Submit Ticket");
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(submitTicketButton, gbc);
+
+        //Add back button
+        JButton backButton = new JButton("Back");
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(backButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        mainPanel.add(infoPanel, gbc);
 
         faqButton.addActionListener(new ActionListener() {
             @Override
@@ -57,19 +89,29 @@ public class SupportScreen extends JFrame {
             }
         });
 
-        logoutButton.addActionListener(new ActionListener() {
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                JOptionPane.showMessageDialog(null, "Logged out successfully!");
-                new LoginScreen().setVisible(true);
+                new MainScreen().setVisible(true);
             }
         });
 
+        // Add the mainPanel to the frame
+        add(mainPanel);
+        setSize(600,800); //Sets width and height of window
+
+        setTitle("Support");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {
-        new SupportScreen().setVisible(true);
+        // Create and display the login form
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new SupportScreen().setVisible(true);
+            }
+        });
     }
 }
