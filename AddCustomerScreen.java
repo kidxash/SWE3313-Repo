@@ -1,24 +1,109 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class AddCustomerScreen extends JFrame {
-    private JTextField nameField;
-    private JTextField storeField;
-    private JTextField addressField;
-    private JTextField contactField;
-    private JButton saveButton;
 
+    // Constructor to setup the GUI components
     public AddCustomerScreen() {
-        setTitle("Add New Customer");
-        setSize(300, 300);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        // Create a mainPanel to hold all components
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridBagLayout());
+        mainPanel.setBorder(BorderFactory.createLineBorder(Color.CYAN, 20));
 
-        JPanel panel = new JPanel();
-        add(panel);
-        placeComponents(panel);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+
+        //Title panel
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(new GridBagLayout());
+        titlePanel.setBackground(Color.CYAN);
+
+        JLabel titleLabel = new JLabel("Add Customer");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        titlePanel.add(titleLabel, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.ipady = 20;
+        mainPanel.add(titlePanel, gbc);
+
+        //Panel to hold buttons
+        JPanel infoPanel = new JPanel(new GridBagLayout());
+
+        // Add Name label and textbox
+        JLabel nameLabel = new JLabel("Name:");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(0,0,0,0);
+        gbc.ipadx = 20;
+        infoPanel.add(nameLabel, gbc);
+
+        JTextField nameField = new JTextField();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.insets = new Insets(0,0,0,0);
+        gbc.ipadx = 20;
+        infoPanel.add(nameField, gbc);
+
+        // Add store label and textboc
+        JLabel storeLabel = new JLabel("Store:");
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(storeLabel, gbc);
+
+        JTextField storeField = new JTextField();
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(storeField, gbc);
+
+        // Add address label and textbox
+        JLabel addressLabel = new JLabel("Address:");
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(addressLabel, gbc);
+
+        JTextField addressField = new JTextField();
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(addressField, gbc);
+
+        // Add conatact label and field
+        JLabel contactLabel = new JLabel("Contact:");
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(contactLabel, gbc);
+
+        JTextField contactField = new JTextField();
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(contactField, gbc);
+
+        //Add back button
+        JButton backButton = new JButton("Back");
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(backButton, gbc);
+
+        // Add Save button
+        JButton saveButton = new JButton("Save");
+        gbc.gridx = 1;
+        gbc.gridy = 5;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        infoPanel.add(saveButton, gbc);
 
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -38,46 +123,33 @@ public class AddCustomerScreen extends JFrame {
             }
         });
 
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MainScreen().setVisible(true);
+            }
+        });
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        mainPanel.add(infoPanel, gbc);
+
+        // Add the mainPanel to the frame
+        add(mainPanel);
+        setSize(600,800); //Sets width and height of window
+
+        setTitle("Add New Customer");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
-    private void placeComponents(JPanel panel) {
-        panel.setLayout(null);
-
-        JLabel nameLabel = new JLabel("Name:");
-        nameLabel.setBounds(10, 20, 80, 25);
-        panel.add(nameLabel);
-
-        nameField = new JTextField(20);
-        nameField.setBounds(100, 20, 165, 25);
-        panel.add(nameField);
-
-        JLabel storeLabel = new JLabel("Store:");
-        storeLabel.setBounds(10, 50, 80, 25);
-        panel.add(storeLabel);
-
-        storeField = new JTextField(20);
-        storeField.setBounds(100, 50, 165, 25);
-        panel.add(storeField);
-
-        JLabel addressLabel = new JLabel("Address:");
-        addressLabel.setBounds(10, 80, 80, 25);
-        panel.add(addressLabel);
-
-        addressField = new JTextField(20);
-        addressField.setBounds(100, 80, 165, 25);
-        panel.add(addressField);
-
-        JLabel contactLabel = new JLabel("Contact:");
-        contactLabel.setBounds(10, 110, 80, 25);
-        panel.add(contactLabel);
-
-        contactField = new JTextField(20);
-        contactField.setBounds(100, 110, 165, 25);
-        panel.add(contactField);
-
-        saveButton = new JButton("Save");
-        saveButton.setBounds(10, 140, 255, 25);
-        panel.add(saveButton);
+    public static void main(String[] args) {
+        // Create and display the login form
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new AddCustomerScreen().setVisible(true);
+            }
+        });
     }
 }
