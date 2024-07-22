@@ -5,7 +5,10 @@ public class Personnel {
     String name;
 
     //Personnel will be Loaded in by Driver
-    Personnel(){
-
+    Personnel(String personnelID, String email, int contactNumber, String name){
+        this.personnelID=personnelID;
+        this.email=email;
+        ContactNumber=contactNumber;
+        this.name=name;
     }
 }
