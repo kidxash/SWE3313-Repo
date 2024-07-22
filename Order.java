@@ -29,4 +29,15 @@ public class Order {
     public void removeProduct(Product i){
         productList.remove(i);
     }
+    public String getOrderID(){
+        return orderID;
+    }
+
+    public String rawData() {
+        StringBuilder data = new StringBuilder(STR."\{orderID},\{customerID},\{warehouseID},\{PersonnelID}");
+        for (Product product : productList) {
+            data.append(STR.",\{product.getProductID()}");
+        }
+        return data.toString();
+    }
 }

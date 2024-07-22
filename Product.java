@@ -24,4 +24,7 @@ public class Product {
         LastShipment=lastShipment;
         this.reserved=reserved;
     }
+    public int getProductID(){
+        return getProductID();
+    }
 }

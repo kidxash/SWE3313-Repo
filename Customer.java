@@ -39,4 +39,8 @@ public class Customer {
         Street=street;
         Zipcode=zipcode;
     }
+
+    public String rawData(){
+        return STR."\{CustomerID},\{FirstName},\{LastName},\{customerPhone},\{Email},\{State},\{Street},\{City},\{Zipcode},\{Loading_cap}";
+    }
 }

@@ -28,4 +28,12 @@ public class LoadAssignment {
     public void removeOrder(Order i){
         orderList.remove(i);
     }
+
+    public String rawData() {
+        StringBuilder data = new StringBuilder(STR."\{LoadID},\{warehouseID},\{DriverID},\{PersonnelID}");
+        for (Order order : orderList) {
+            data.append(STR.",\{order.getOrderID()}");
+        }
+        return data.toString();
+    }
 }
