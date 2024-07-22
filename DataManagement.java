@@ -9,7 +9,7 @@ public void printFiles()
         try{
             Scanner scan  = new Scanner(customerFiles);
             String files = scan.nextLine()
-                Customer.rawData()
+            Customer.rawData()
 
         }catch (FileNotFoundException e) {
             throw new RuntimeException(e);
